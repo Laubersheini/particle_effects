@@ -1,7 +1,10 @@
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d");
+var continousParticles = true;
+var continousParticlesParams;
+var continousParticlesSpread;
 
-
+const maxParticles = 200;
 
 class Particle{
 
@@ -48,10 +51,26 @@ class Particle{
 
 var particles = [];
 
-for(let i=0;i< 200;i++){
-	particles[i] = generateRandomParticle({
+function generateParticleBurst(parameters,spreads){
+	
+	for(let i=0;i< 200;i++){
+		particles[i] = generateRandomParticle(parameters,spreads)
+	}
+}
+continousParticlesParams = {
 	x:500,
-	y:500,
+	y:200,
+	dy:1,
+	ay:0.1
+}
+continousParticlesSpread = {
+	spreadDx :5, 
+	spreadDy :0.5
+}
+
+generateParticleBurst({
+	x:500,
+	y:200,
 	dy:1,
 	ay:0.1
 	},{
@@ -59,7 +78,6 @@ for(let i=0;i< 200;i++){
 	spreadDy :0.5
 
 	});
-}
 
 
 function generateRandomParticle(
@@ -92,6 +110,7 @@ function generateRandomParticle(
 	ay += generateSpread(spreadAy)
 	width += generateSpread(spreadWidth)
 	height  += generateSpread(spreadHeight) 
+	
 	return new Particle({
 	x : x,
 	y : y,
@@ -116,6 +135,12 @@ function render(){
 		particles[i].update();
 	
 
+	}
+	if(continousParticles){
+		particles.push(	generateRandomParticle(continousParticlesParams,continousParticlesSpread))
+		if(particles.length > maxParticles){
+			particles.shift()
+		}
 	}
 
 requestAnimationFrame(render)
