@@ -19,7 +19,7 @@ class Particle{
 		height = 10,
 		color = "#ff00ff"
 	}){
-			
+
 		this.x = x;
 		this.y = y;
 		this.dx = dx;
@@ -30,19 +30,19 @@ class Particle{
 		this.height= height
 		this.color = color;
 	}
-	
+
 	update(){
-		this.x += this.dx	
+		this.x += this.dx
 		this.y += this.dy
 		this.dx += this.ax
 		this.dy += this.ay
-		this.draw();	
-	}	
+		this.draw();
+	}
 
 	draw(){
 		ctx.fillStyle = this.color;
 		ctx.fillRect(this.x,this.y,this.width,this.height);
-		
+
 
 	}
 
@@ -52,7 +52,7 @@ class Particle{
 var particles = [];
 
 function generateParticleBurst(parameters,spreads){
-	
+
 	for(let i=0;i< 200;i++){
 		particles[i] = generateRandomParticle(parameters,spreads)
 	}
@@ -64,7 +64,7 @@ continousParticlesParams = {
 	ay:0.1
 }
 continousParticlesSpread = {
-	spreadDx :5, 
+	spreadDx :5,
 	spreadDy :0.5
 }
 
@@ -74,7 +74,7 @@ generateParticleBurst({
 	dy:1,
 	ay:0.1
 	},{
-	spreadDx :5, 
+	spreadDx :5,
 	spreadDy :0.5
 
 	});
@@ -89,8 +89,9 @@ function generateRandomParticle(
 		ax = 0,
 		ay = 0,
 		width = 10,
-		height= 10	
-},{	
+		height= 10,
+		color = "#ff00ff"
+},{
 	spreadX = 0,
 		spreadY = 0,
 		spreadDx = 0,
@@ -101,7 +102,7 @@ function generateRandomParticle(
 		spreadHeight = 0
 
 	}){
-	
+
 	x += generateSpread(spreadX)
 	y += generateSpread(spreadY)
 	dx += generateSpread(spreadDx)
@@ -109,8 +110,8 @@ function generateRandomParticle(
 	ax += generateSpread(spreadAx)
 	ay += generateSpread(spreadAy)
 	width += generateSpread(spreadWidth)
-	height  += generateSpread(spreadHeight) 
-	
+	height  += generateSpread(spreadHeight)
+
 	return new Particle({
 	x : x,
 	y : y,
@@ -119,8 +120,8 @@ function generateRandomParticle(
 	ax : ax,
 	ay : ay,
 	width : width,
-	height : height
-		
+	height : height,
+	color : color
 	})
 }
 
@@ -133,7 +134,7 @@ function render(){
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 	for(let i=0;i<particles.length;i++){
 		particles[i].update();
-	
+
 
 	}
 	if(continousParticles){
@@ -146,3 +147,18 @@ function render(){
 requestAnimationFrame(render)
 }
 requestAnimationFrame(render)
+
+
+
+//handling of user input
+
+
+function setOption(e,option){
+	if(option != "color"){
+		continousParticlesParams[option] = parseFloat( e.value);
+	}else{
+		continousParticlesParams[option] = e.value
+
+	}
+
+}

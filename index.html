@@ -7,6 +7,45 @@
   </head>
   <body>
     <canvas id="canvas" width="1000" height="1000"></canvas>
+		<div id="sliderContainer">
+			<div class="slider">
+        <p>x</p>
+				<input type="range" min="0" max="1000" step="1" oninput="setOption(this,'x')">
+      </div>
+      <div class="slider">
+        <p>y</p>
+				<input type="range" min="0" max="1000" step="1" oninput="setOption(this,'y')">
+      </div>
+      <div class="slider">
+        <p>X Velocity</p>
+        <input type="number" min="-20" max="20" step="0.05" oninput="setOption(this,'dx')">
+      </div>
+      <div class="slider">
+        <p>Y Velocity</p>
+        <input type="number" min="-20" max="20" step="0.05" oninput="setOption(this,'dy')">
+      </div>
+      <div class="slider">
+        <p>X Acceleration</p>
+        <input type="number" min="-2" max="2" step="0.01" oninput="setOption(this,'ax')">
+      </div>
+      <div class="slider">
+        <p>Y Acceleration</p>
+        <input type="number" min="-2" max="2" step="0.01" oninput="setOption(this,'ay')">
+      </div>
+      <div class="slider">
+        <p>Width</p>
+        <input type="number" min="2" max="100" step="0.01" oninput="setOption(this,'width')">
+      </div>
+      <div class="slider">
+        <p>Height</p>
+        <input type="number" min="2" max="100" step="0.01" oninput="setOption(this,'height')">
+      </div>
+      <div class="slider">
+        <p>Color</p>
+        <input type="text" min="2" max="100" step="0.01" oninput="setOption(this,'color')">
+      </div>
+
+		</div>
     <script src="./script.js" charset="utf-8"></script>
   </body>
 </html>
