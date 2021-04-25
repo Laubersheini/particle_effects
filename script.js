@@ -68,16 +68,6 @@ continousParticlesSpread = {
 	spreadDy :0.5
 }
 
-generateParticleBurst({
-	x:500,
-	y:200,
-	dy:1,
-	ay:0.1
-	},{
-	spreadDx :5,
-	spreadDy :0.5
-
-	});
 
 
 function generateRandomParticle(
@@ -170,4 +160,15 @@ function setSpread(e,option){
 
 	}
 
+}
+
+function generateBurst(){
+generateParticleBurst(continousParticlesParams,continousParticlesSpread)
+
+}
+
+
+function setContinous(caller){
+	continousParticles = caller.checked;
+	console.log(caller)
 }
