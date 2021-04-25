@@ -170,5 +170,16 @@ generateParticleBurst(continousParticlesParams,continousParticlesSpread)
 
 function setContinous(caller){
 	continousParticles = caller.checked;
-	console.log(caller)
 }
+
+//keep the user input even after reload
+{
+	let inputs = document.getElementsByTagName("input");
+	for(let i = 0; i<inputs.length;i++){
+		inputs[i].oninput();	
+
+	}
+	
+
+}
+
