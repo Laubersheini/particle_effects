@@ -162,3 +162,12 @@ function setOption(e,option){
 	}
 
 }
+function setSpread(e,option){
+	if(option != "color"){
+		continousParticlesSpread[option] = parseFloat( e.value);
+	}else{
+		continousParticlesSpread[option] = e.value
+
+	}
+
+}
