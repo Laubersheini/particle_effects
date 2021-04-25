@@ -28,6 +28,7 @@ body{
 #canvas{
 	background-color:#2E2E2E;
 	grid-row :span 2;
+	align-self: center;
 }
 
 #modifiers{
@@ -39,7 +40,7 @@ body{
 	align-items:center;
 	align-content: center;
 	justify-content: space-around;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto auto auto;
 	background-color:#2E2E2E;
 }
 
@@ -57,4 +58,14 @@ float:right;
 	align-content: center;
 	align-items: start;
 	height: 100vh;
+}
+
+a{
+	color : #00ffff;
+
+}
+
+a:visited{
+	color : #00ffff;
+
 }
