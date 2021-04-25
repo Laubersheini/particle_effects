@@ -40,7 +40,7 @@ body{
 	align-items:center;
 	align-content: center;
 	justify-content: space-around;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto auto auto;
 	background-color:#2E2E2E;
 }
 

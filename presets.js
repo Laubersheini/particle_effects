@@ -68,8 +68,41 @@ var presets = {
 			spreadDx:1
 
 		}
+	},
+	bouncing:{
+		parameters:{
+			x:450,
+			y:200,
+			dx:5,
+			dy:10,
+			ay:0.2,
+			borderCollision :true
+		},
+		spread:{
+			spreadDy:0.5
+		}
+
+	},
+	parabola:{
+		parameters:{
+			x:100,
+			y:800,
+			dx:5,
+			dy: -15,
+			ay: 0.2,
+			width: 5,
+			height: 5,
+			color : "#0000ff"		
+
+		},
+		spread:{
+			spreadDy: 0.5
+		}
 
 
 	}
+
+
+	
 
 }

@@ -27,7 +27,11 @@ generateParticleBurst(continousParticlesParams,continousParticlesSpread)
 
 }
 
+function setBorderCollision(caller){
+	continousParticlesParams.borderCollision = caller.checked;
+	
 
+}
 function setContinous(caller){
 	continousParticles = caller.checked;
 }
@@ -50,6 +54,8 @@ function setPreset(caller){
 	paramInputs[6].value = presets[caller.value].parameters.width ?? 10
 	paramInputs[7].value = presets[caller.value].parameters.height ?? 10
 	paramInputs[8].value = presets[caller.value].parameters.color ?? "#ff00ff"
+
+	document.getElementById("border-collision").checked = presets[caller.value].parameters.borderCollision ?? false;
 
 	spreadInputs[0].value = presets[caller.value].spread.spreadX ?? 0
 	spreadInputs[1].value = presets[caller.value].spread.spreadY ?? 0

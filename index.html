@@ -113,15 +113,29 @@
             <label for="preset-turn">Turn</label>
           </div>
           <div>
+            <input type="radio" id="preset-bouncing" name="presets" value="bouncing" oninput="setPreset(this)" />
+            <label for="preset-bouncing">bouncing</label>
+          </div>
+          <div>
+            <input type="radio" id="preset-parabola" name="presets" value="parabola" oninput="setPreset(this)" />
+            <label for="preset-parabola">parabola</label>
+          </div>
+          <div>
             <input type="radio" id="preset-custom" name="presets" value="custom" oninput="setPreset(this)" />
             <label for="preset-custom">custom</label>
           </div>
         </div>
         <div id="modifiers">
-          <div id="continous-particles-container">
+          <div >
 
             <label for="continous-particles">continous Particles</label>
             <input type="checkbox" id="continous-particles"checked=true oninput="setContinous(this)">
+
+          </div>
+          <div>
+
+            <label for="border-collision">border collision</label>
+            <input type="checkbox" id="border-collision" checked=true oninput="setBorderCollision(this)">
 
           </div>
           <button onclick="generateBurst()">Burst</button>

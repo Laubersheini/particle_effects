@@ -17,7 +17,8 @@ class Particle{
 		ay = 0,
 		width = 10,
 		height = 10,
-		color = "#ff00ff"
+		color = "#ff00ff",
+		borderCollision = false
 	}){
 
 		this.x = x;
@@ -29,9 +30,19 @@ class Particle{
 		this.width = width
 		this.height= height
 		this.color = color;
+		this.borderCollision = borderCollision;
 	}
 
 	update(){
+		if(this.borderCollision){
+			if(this.y > canvas.height || this.y<0){
+				this.dy = -this.dy
+				console.log("hi")
+			}
+			if(this.x> canvas.width|| this.x<0){
+				this.dx = -this.dx
+			}
+		}
 		this.x += this.dx
 		this.y += this.dy
 		this.dx += this.ax
@@ -80,7 +91,8 @@ function generateRandomParticle(
 		ay = 0,
 		width = 10,
 		height= 10,
-		color = "#ff00ff"
+		color = "#ff00ff",
+		borderCollision = false
 },{
 	spreadX = 0,
 		spreadY = 0,
@@ -111,7 +123,8 @@ function generateRandomParticle(
 	ay : ay,
 	width : width,
 	height : height,
-	color : color
+	color : color,
+	borderCollision : borderCollision
 	})
 }
 
