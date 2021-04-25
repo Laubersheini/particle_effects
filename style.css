@@ -10,7 +10,7 @@ float:right;
 
 #content{
 	display :grid;
-	grid-template-columns: 1000px auto auto;
+	grid-template-columns: 1000px auto auto auto ;
 	justify-content: space-around;
 	align-content: center;
 }

@@ -127,6 +127,8 @@ function render(){
 
 
 	}
+
+	//this could probably be way more effitent if we wouldnt destroy the objects but simply change their properties
 	if(continousParticles){
 		particles.push(	generateRandomParticle(continousParticlesParams,continousParticlesSpread))
 		if(particles.length > maxParticles){
@@ -172,14 +174,46 @@ function setContinous(caller){
 	continousParticles = caller.checked;
 }
 
+function setPreset(caller){
+	console.log(caller)
+	continousParticlesParams = presets[caller.value].parameters;
+	continousParticlesSpread = presets[caller.value].spread;
+
+	 //set the inputfields to the preset values
+
+	let paramInputs = document.getElementById("sliderContainer").getElementsByTagName("input");
+	let spreadInputs = document.getElementById("spreadSliderContainer").getElementsByTagName("input");
+
+	paramInputs[0].value = presets[caller.value].parameters.x ?? 0
+	paramInputs[1].value = presets[caller.value].parameters.y ?? 0
+	paramInputs[2].value = presets[caller.value].parameters.dx ?? 0
+	paramInputs[3].value = presets[caller.value].parameters.dy ?? 0
+	paramInputs[4].value = presets[caller.value].parameters.ax ?? 0
+	paramInputs[5].value = presets[caller.value].parameters.ay ?? 0
+	paramInputs[6].value = presets[caller.value].parameters.width ?? 10
+	paramInputs[7].value = presets[caller.value].parameters.height ?? 10
+	paramInputs[8].value = presets[caller.value].parameters.color ?? "#ff00ff"
+
+	spreadInputs[0].value = presets[caller.value].spread.spreadX ?? 0
+	spreadInputs[1].value = presets[caller.value].spread.spreadY ?? 0
+	spreadInputs[2].value = presets[caller.value].spread.spreadDx ?? 0
+	spreadInputs[3].value = presets[caller.value].spread.spreadDy ?? 0
+	spreadInputs[4].value = presets[caller.value].spread.spreadAx ?? 0
+	spreadInputs[5].value = presets[caller.value].spread.spreadAy ?? 0
+	spreadInputs[6].value = presets[caller.value].spread.spreadWidth ?? 0
+	spreadInputs[7].value = presets[caller.value].spread.spreadHeight ?? 0
+
+
+}
+
 //keep the user input even after reload
 {
 	let inputs = document.getElementsByTagName("input");
 	for(let i = 0; i<inputs.length;i++){
-		inputs[i].oninput();	
-
+		if(inputs[i].type != "radio"){
+			inputs[i].oninput();
+		}
 	}
-	
+
 
 }
-

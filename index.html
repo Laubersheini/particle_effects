@@ -89,7 +89,32 @@
           <input type="checkbox" checked=true oninput="setContinous(this)">
         </div>
         </div>
+
+        <div id="presets">
+          <div>
+            <input type="radio" id="preset-drip" name="presets" value="dripping" oninput="setPreset(this)" />
+            <label for="preset-drip">Dripping</label>
+          </div>
+          <div>
+            <input type="radio" id="preset-fountain" name="presets" value="fountain" oninput="setPreset(this)" />
+            <label for="preset-fountain">Fountain</label>
+          </div>
+          <div>
+            <input type="radio" id="preset-stars" name="presets" value="stars" oninput="setPreset(this)" />
+            <label for="preset-stars">Stars</label>
+          </div>
+          <div>
+            <input type="radio" id="preset-outward" name="presets" value="outward" oninput="setPreset(this)" />
+            <label for="preset-outward">outward</label>
+          </div>
+          <div>
+            <input type="radio" id="preset-custom" name="presets" value="custom" oninput="setPreset(this)" />
+            <label for="preset-custom">custom</label>
+          </div>
+        </div>
+
 		</div>
+    <script src="./presets.js" charset="utf-8"></script>
     <script src="./script.js" charset="utf-8"></script>
   </body>
 </html>
