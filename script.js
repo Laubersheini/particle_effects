@@ -4,7 +4,7 @@ var continousParticles = true;
 var continousParticlesParams;
 var continousParticlesSpread;
 
-const maxParticles = 200;
+const maxParticles = 500;
 
 class Particle{
 
@@ -152,6 +152,7 @@ function setOption(e,option){
 		continousParticlesParams[option] = e.value
 
 	}
+document.getElementById("preset-custom").checked = true;
 
 }
 function setSpread(e,option){
@@ -161,7 +162,7 @@ function setSpread(e,option){
 		continousParticlesSpread[option] = e.value
 
 	}
-
+document.getElementById("preset-custom").checked = true;
 }
 
 function generateBurst(){
@@ -173,11 +174,10 @@ generateParticleBurst(continousParticlesParams,continousParticlesSpread)
 function setContinous(caller){
 	continousParticles = caller.checked;
 }
-
 function setPreset(caller){
-	console.log(caller)
-	continousParticlesParams = presets[caller.value].parameters;
-	continousParticlesSpread = presets[caller.value].spread;
+	//console.log("hey");
+	//console.log(caller.value);
+	if(caller.value != "custom"){
 
 	 //set the inputfields to the preset values
 
@@ -202,12 +202,16 @@ function setPreset(caller){
 	spreadInputs[5].value = presets[caller.value].spread.spreadAy ?? 0
 	spreadInputs[6].value = presets[caller.value].spread.spreadWidth ?? 0
 	spreadInputs[7].value = presets[caller.value].spread.spreadHeight ?? 0
+	
 
-
+	//this is possibly the single worst way to deepcopy the presets into the actual properties (but it works)	
+	updateFromInputs()
+	document.getElementById("preset-" + caller.value).checked = true;
+}
 }
 
 //keep the user input even after reload
-{
+function updateFromInputs(){
 	let inputs = document.getElementsByTagName("input");
 	for(let i = 0; i<inputs.length;i++){
 		if(inputs[i].type != "radio"){
@@ -217,3 +221,4 @@ function setPreset(caller){
 
 
 }
+updateFromInputs()
