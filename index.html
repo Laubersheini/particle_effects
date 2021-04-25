@@ -11,6 +11,7 @@
 
 
 		<div id="sliderContainer">
+      <p>Initial Values</p>
 			<div class="slider">
         <p>x</p>
 				<input type="number" value="500" min="0" max="1000" step="10" oninput="setOption(this,'x')">
@@ -20,38 +21,39 @@
 				<input type="number" value="200" min="0" max="1000" step="10" oninput="setOption(this,'y')">
       </div>
       <div class="slider">
-        <p>X Velocity</p>
+        <p>x Velocity</p>
         <input type="number" value="0" min="-20" max="20" step="0.05" oninput="setOption(this,'dx')">
       </div>
       <div class="slider">
-        <p>Y Velocity</p>
+        <p>y Velocity</p>
         <input type="number" value="1" min="-20" max="20" step="0.05" oninput="setOption(this,'dy')">
       </div>
       <div class="slider">
-        <p>X Acceleration</p>
+        <p>x Acceleration</p>
         <input type="number" value="0" min="-2" max="2" step="0.01" oninput="setOption(this,'ax')">
       </div>
       <div class="slider">
-        <p>Y Acceleration</p>
+        <p>y Acceleration</p>
         <input type="number" value="0.1" min="-2" max="2" step="0.01" oninput="setOption(this,'ay')">
       </div>
       <div class="slider">
-        <p>Width</p>
+        <p>width</p>
         <input type="number" value="10"  min="2" max="100" step="1" oninput="setOption(this,'width')">
       </div>
       <div class="slider">
-        <p>Height</p>
+        <p>height</p>
         <input type="number" value="10"  min="2" max="100" step="1" oninput="setOption(this,'height')">
       </div>
       <div class="slider">
-        <p>Color</p>
+        <p>color</p>
         <input type="text" value="#ff00ff" min="2" max="100" step="0.01" oninput="setOption(this,'color')">
       </div>
 
-      <button onclick="generateBurst()">Burst</button>
+
     </div>
 
       <div id="spreadSliderContainer">
+        <p>Variations</p>
   			<div class="slider">
           <p>x</p>
   				<input type="number" value="0" min="0" max="1000" step="1" oninput="setSpread(this,'spreadX')">
@@ -61,36 +63,34 @@
   				<input type="number" value="0" min="0" max="1000" step="1" oninput="setSpread(this,'spreadY')">
         </div>
         <div class="slider">
-          <p>X Velocity</p>
+          <p>x Velocity</p>
           <input type="number" value="5" min="-20" max="20" step="0.05" oninput="setSpread(this,'spreadDx')">
         </div>
         <div class="slider">
-          <p>Y Velocity</p>
+          <p>y Velocity</p>
           <input type="number" value="0.5"  min="-20" max="20" step="0.05" oninput="setSpread(this,'spreadDy')">
         </div>
         <div class="slider">
-          <p>X Acceleration</p>
+          <p>x Acceleration</p>
           <input type="number" value="0" min="-2" max="2" step="0.01" oninput="setSpread(this,'spreadAx')">
         </div>
         <div class="slider">
-          <p>Y Acceleration</p>
+          <p>y Acceleration</p>
           <input type="number" value="0"  min="-2" max="2" step="0.01" oninput="setSpread(this,'spreadAy')">
         </div>
         <div class="slider">
-          <p>Width</p>
+          <p>width</p>
           <input type="number" value="0" min="2" max="100" step="0.01" oninput="setSpread(this,'spreadWidth')">
         </div>
         <div class="slider">
-          <p>Height</p>
+          <p>height</p>
           <input type="number" value="0"  min="2" max="100" step="0.01" oninput="setSpread(this,'spreadHeight')">
         </div>
-        <div class="slider">
-          <p>continous Particles</p>
-          <input type="checkbox" checked=true oninput="setContinous(this)">
-        </div>
+
         </div>
 
         <div id="presets">
+          <p>Presets</p>
           <div>
             <input type="radio" id="preset-dripping" name="presets" value="dripping" oninput="setPreset(this)" />
             <label for="preset-dripping">Dripping</label>
@@ -116,7 +116,15 @@
             <label for="preset-custom">custom</label>
           </div>
         </div>
+        <div id="modifiers">
+          <div id="continous-particles-container">
 
+            <label for="continous-particles">continous Particles</label>
+            <input type="checkbox" id="continous-particles"checked=true oninput="setContinous(this)">
+
+          </div>
+          <button onclick="generateBurst()">Burst</button>
+        </div>
 		</div>
     <script src="./presets.js" charset="utf-8"></script>
     <script src="./script.js" charset="utf-8"></script>

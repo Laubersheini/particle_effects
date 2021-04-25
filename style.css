@@ -1,8 +1,49 @@
-#canvas{
+body{
+	background-color:#191919;
+	color :white;
+	margin:0;
+	padding:0;
+}
 
-background-color:#eee;
+
+#spreadSliderContainer input ,#sliderContainer input{
+	background-color:#2E2E2E;
+	width: 100%;
+	height:100%;
+	padding: 5%;
+	border : 1px solid black;
+	box-sizing: border-box;
+	color : white;
+}
+
+#modifiers button{
+	background-color:#2E2E2E;
+	color: white;
+	padding: 50%;
+	width: 300%;
+	border : 1px solid black;
 
 }
+
+#canvas{
+	background-color:#2E2E2E;
+	grid-row :span 2;
+}
+
+#modifiers{
+	grid-column: span 3;
+
+	align-self: end;
+	margin: 10%;
+	display :grid;
+	align-items:center;
+	align-content: center;
+	justify-content: space-around;
+	grid-template-columns: auto auto;
+	background-color:#2E2E2E;
+}
+
+
 
 #sliderContainer{
 float:right;
@@ -11,6 +52,9 @@ float:right;
 #content{
 	display :grid;
 	grid-template-columns: 1000px auto auto auto ;
+	grid-template-rows: 80vh auto;
 	justify-content: space-around;
 	align-content: center;
+	align-items: start;
+	height: 100vh;
 }
